@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Rose for My Princess</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff5f9 0%, #ffeef5 100%);
+      font-family: 'Playfair Display', Georgia, serif;
+      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 900px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 70px 50px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(216, 27, 96, 0.2);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #fde8ef;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.5rem;
+      color: #d81b60;
+      margin: 0 0 20px;
+      letter-spacing: 1px;
+    }
+
+    p.lead {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      max-width: 720px;
+      margin: 0 auto 40px;
+      color: #555;
+    }
+
+    /* Bouquet container */
+    .bouquet {
+      position: relative;
+      display: inline-block;
+      margin: 50px 0;
+      height: 560px;
+    }
+
+    /* Wrapping paper */
+    .wrapper {
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 420px;
+      height: 320px;
+      background: linear-gradient(135deg, #fff0f5 0%, #ffd4e0 100%);
+      border-radius: 50% 50% 10% 10% / 80% 80% 15% 15%;
+      border: 9px solid #ff99bb;
+      border-bottom: none;
+      z-index: 1;
+    }
+
+    /* Big luxurious satin bow */
+    .bow {
+      position: absolute;
+      bottom: 350px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 120px;
+      z-index: 5;
+    }
+    .bow::before, .bow::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 140px;
+      background: linear-gradient(135deg, #ff69b4, #ff1493);
+      border-radius: 50%;
+      top: -20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .bow::before { left: -50px; transform: rotate(-38deg); }
+    .bow::after { right: -50px; transform: rotate(38deg); }
+    .bow span {
+      position: absolute;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(#ff1493, #c3143a);
+      top: 30px;
+      border-radius: 16px;
+      box-shadow: inset 0 5px 10px rgba(255,255,255,0.3);
+    }
+    .bow i {
+      position: absolute;
+      width: 80px;
+      height: 160px;
+      background: #ff69b4;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .tag {
+      position: absolute;
+      bottom: 330px;
+      left: 50%;
+      transform: translateX(100px) rotate(12deg);
+      background: #fff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      color: #d81b60;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      z-index: 6;
+    }
+
+    /* Single majestic rose */
+    .single-rose {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: gentleSway 8s infinite ease-in-out;
+      z-index: 2;
+    }
+
+    @keyframes gentleSway {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(-1deg); }
+      50% { transform: translateX(-50%) translateY(-12px) rotate(1deg); }
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 60px;
+      padding: 16px 42px;
+      background: linear-gradient(135deg, #ff6b95, #d81b60);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      box-shadow: 0 12px 34px rgba(216,27,96,0.35);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(216,27,96,0.45);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>For You, My Princess</h1>
+    <p class="lead">
+      I know that today has been hard on you.<br>
+      They say that you can control the start of the day but you can try and change the outcome of the end.
+      I hope this gift changes that end.
+    </p>
+
+    <div class="bouquet">
+      <div class="wrapper"></div>
+      <div class="bow"><span></span><i></i></div>
+      <div class="tag">Forever yours ♡</div>
+
+      <!-- ONE BIG, BEAUTIFUL ROSE -->
+      <svg class="single-rose" width="360" height="580" viewBox="0 0 360 580" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff4d7a"/>
+            <stop offset="40%" stop-color="#ff1a53"/>
+            <stop offset="100%" stop-color="#c3143a"/>
+          </linearGradient>
+          <linearGradient id="highlight" x1="0%" y1="0%" x2="80%" y2="80%">
+            <stop offset="0%" stop-color="#ff99bb"/>
+            <stop offset="60%" stop-color="#ff3366"/>
+          </linearGradient>
+          <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#4caf50"/>
+            <stop offset="100%" stop-color="#2e7d32"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Long elegant stem -->
+        <rect x="174" y="180" width="14" height="380" rx="7" fill="#2e7d32"/>
+
+        <!-- Leaves -->
+        <path d="M150 280 Q100 240 120 200" stroke="url(#leafGrad)" stroke-width="36" fill="none"/>
+        <path d="M210 320 Q260 280 240 240" stroke="url(#leafGrad)" stroke-width="36" fill="none"/>
+
+        <!-- Outer petals (big and velvety) -->
+        <ellipse cx="180" cy="160" rx="100" ry="130" fill="url(#petalGrad)" opacity="0.96"/>
+        <ellipse cx="180" cy="140" rx="90" ry="120" fill="#ff3366" opacity="0.9"/>
+
+        <!-- Inner layered petals (more rose-like swirl) -->
+        <ellipse cx="180" cy="100" rx="76" ry="100" fill="url(#highlight)" opacity="0.95"/>
+        <ellipse cx="140" cy="110" rx="60" ry="86" fill="url(#petalGrad)" transform="rotate(-60 180 120)"/>
+        <ellipse cx="220" cy="110" rx="60" ry="86" fill="url(#petalGrad)" transform="rotate(60 180 120)"/>
+        <ellipse cx="180" cy="70" rx="56" ry="80" fill="#ff6699"/>
+        <ellipse cx="180" cy="50" rx="44" ry="64" fill="#ff99bb"/>
+
+        <!-- Very center (tight bud) -->
+        <circle cx="180" cy="60" r="32" fill="#ff3366"/>
+        <circle cx="180" cy="55" r="24" fill="#ff6699"/>
+
+        <!-- Soft glow/shadow -->
+        <ellipse cx="180" cy="160" rx="110" ry="140" fill="none" stroke="#ff3366" stroke-width="8" opacity="0.15"/>
+      </svg>
+
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to your letter</a>
+  </div>
+
+</body>
+</html>
